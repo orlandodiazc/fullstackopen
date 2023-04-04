@@ -1,6 +1,6 @@
 # SPA New Note Events
 
-After the initial fetch of the page, the front only process one HTTP request to the server to the save the JSON Object.
+After the initial fetch of the page, the front-end only processes one HTTP request to the server to save the JSON Object.
 
 ```mermaid
 flowchart LR
