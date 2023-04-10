@@ -1,18 +1,14 @@
-export default function PersonForm({
-  handleSubmit,
-  setNewName,
-  setNewNumber,
-  newName,
-  newNumber,
-}) {
+export default function PersonForm({ handleSubmit, setNewPerson, newPerson }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label>
           name:
           <input
-            onChange={(ev) => setNewName(ev.target.value)}
-            value={newName}
+            onChange={(ev) =>
+              setNewPerson({ ...newPerson, name: ev.target.value })
+            }
+            value={newPerson.name}
           />
         </label>
       </div>
@@ -21,8 +17,10 @@ export default function PersonForm({
         <label>
           number:
           <input
-            onChange={(ev) => setNewNumber(ev.target.value)}
-            value={newNumber}
+            onChange={(ev) =>
+              setNewPerson({ ...newPerson, number: ev.target.value })
+            }
+            value={newPerson.number}
           />
         </label>
       </div>

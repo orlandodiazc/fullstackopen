@@ -10,20 +10,22 @@ export default function App() {
     { name: "perro alto", number: "789" },
     { name: "andres perez", number: "1011" },
   ]);
-  const [newName, setNewName] = useState("");
-  const [newNumber, setNewNumber] = useState("");
+  const [newPerson, setNewPerson] = useState({ name: "", number: "" });
   const [query, setQuery] = useState({ searchValue: "", list: [] });
 
   function handleSubmit(ev) {
     ev.preventDefault();
-    if (persons.some((person) => person.name === newName)) {
-      alert(`${newName} already exists`);
+    if (persons.some((person) => person.name === newPerson.name)) {
+      alert(`${newPerson.name} already exists`);
       return;
     }
 
-    setPersons([...persons, { name: newName, number: newNumber }]);
-    setNewName("");
-    setNewNumber("");
+    setPersons([
+      ...persons,
+      { name: newPerson.name, number: newPerson.number },
+    ]);
+    setNewPerson({ name: "", number: "" });
+    setQuery({ searchValue: "", list: [] });
   }
 
   function handleQueryChange(ev) {
@@ -43,10 +45,8 @@ export default function App() {
       <h2>Add a new book</h2>
       <PersonForm
         handleSubmit={handleSubmit}
-        setNewName={setNewName}
-        setNewNumber={setNewNumber}
-        newName={newName}
-        newNumber={newNumber}
+        newPerson={newPerson}
+        setNewPerson={setNewPerson}
       />
       <h2>Numbers</h2>
       <Persons numbersToShow={numbersToShow} />
