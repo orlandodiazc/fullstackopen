@@ -25,9 +25,7 @@ function App() {
     copyVotes[selected] += 1
     setVote(copyVotes)
   }
-
-  console.log(votes.length)
-
+  
   return (
     <>
       <h2>Anecdote of the day</h2>
